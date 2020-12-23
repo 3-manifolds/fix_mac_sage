@@ -1,8 +1,10 @@
 import os, subprocess
+python = 'python3.8'
+tcltk_package = 'TclTk-8.6.11.pkg'
 
 sage_root = os.environ['SAGE_ROOT']
 sage_local = os.path.join(sage_root, 'local')
-sage_libdynload = os.path.join(sage_local, 'lib', 'python3.7', 'lib-dynload')
+sage_libdynload = os.path.join(sage_local, 'lib', python, 'lib-dynload')
 old_libssl = '/usr/local/lib/libssl.1.1.dylib'
 new_libssl = os.path.join(sage_local, 'lib', 'libssl.1.1.dylib')
 old_libcrypto = '/usr/local/lib/libcrypto.1.1.dylib'
@@ -26,8 +28,8 @@ def tk_installed():
 
 if __name__ == '__main__':
     here = __path__[0]
-    print("Installing Tk 8.6.10 in /Library/Frameworks -- please choose the defaults.")
-    subprocess.run(['open', '-W', os.path.join(here, 'TclTk-8.6.10.pkg')])
+    print("Installing Tk 8.6.11 in /Library/Frameworks -- please choose the defaults.")
+    subprocess.run(['open', '-W', os.path.join(here, tcltk_package)])
     print("Adding the _tkinter and _ssl modules to Sage")
     subprocess.run(['cp', '-r', os.path.join(here, 'local/'), sage_local]) 
     print('Rewriting id and dependency paths in _ssl, libssl and libcrypto.')
