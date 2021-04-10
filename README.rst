@@ -3,7 +3,11 @@ Fixing SageMath on macOS
 ========================
 
 This small module is to help folks install and use SnapPy inside
-SageMath, by doing two things:
+SageMath.  It has been superseded by `Sage_macOS
+<https://github.com/3-manifolds/Sage_macOS>`_ which is a version of Sage with
+all these fixes and more built in.
+
+This module does two things:
 
 1) Provide SSL support via openssl so that ``sage -pip install
    snappy`` works.
